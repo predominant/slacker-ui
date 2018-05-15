@@ -1,0 +1,231 @@
+@import "../bootstrap-4.1.1/scss/bootstrap";
+
+/*
+ * Variables
+ */
+$header-height: 63px;
+$sidebar-width: 220px;
+$message-form-height: 41px;
+/*
+ * ----------------------
+ */
+
+body {
+  font-size: .875rem;
+  font-family: Lato,appleLogo,sans-serif;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+code {
+  background-color: #eee;
+  border: solid 1px #ccc;
+  padding: 0 5px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  color: rgb(202, 196, 201);
+  background-color: #4d394b;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  font-size: 16px;
+  padding: 0;
+  width: $sidebar-width !important;
+}
+
+.sidebar .sidebar-heading {
+  margin-top: 10px;
+  padding: 0 15px;
+}
+
+.sidebar .room,
+.sidebar .user {
+  list-style-type: none;
+  padding: 0 15px;
+  font-weight: 300;
+  line-height: 30px;
+}
+.sidebar .room a {
+  display: block;
+}
+.sidebar .room a:hover {
+  cursor: pointer;
+}
+.sidebar .room.active {
+  background-color: rgb(76, 150, 137);
+  color: #fff;
+}
+.sidebar .room.has_unread a {
+  color: #fff;
+  font-weight: bold;
+}
+.sidebar ul {
+  padding: 0;
+}
+.sidebar_section {
+  padding-bottom: 1.5em;
+}
+
+/*
+ * Team heading
+ */
+.team_heading {
+  height: $header-height;
+  padding: 9px 16px;
+  .team_name {
+    font-size: 18px;
+    color: #fff;
+  }
+  .user_display_name {
+    font-size: 14px;
+    color: rgb(171, 155, 169);
+    .presence {
+      float: left;
+      width: 18px;
+    }
+    .presence::before {
+      content: '●';
+      font-size: 17px;
+      color: rgb(56, 151, 141);
+    }
+  }
+}
+.team_heading:hover {
+  background-color: rgb(62, 49, 60);
+}
+
+/*
+ * Main Content
+ */
+ main {
+  padding: 0 !important;
+  margin-left: $sidebar-width;
+}
+
+/*
+ * Room heading
+ */
+.room_heading {
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: $sidebar-width;
+  padding-top: 12px;
+  padding-left: 28px;
+  border-bottom: solid #eee 1px;
+  height: $header-height;
+
+  h4 {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+  }
+  h4::before {
+    content: '# ';
+  }
+  .topic_text {
+    color: rgb(113, 114, 116);
+    font-size: 13px;
+    font-weight: 300;
+  }
+}
+
+/*
+ * Message
+ */
+.message {
+  position: relative;
+  padding: 6px 0;
+
+  .outer {
+    float: left;
+    text-align: right;
+    padding-top: 6px;
+    padding-right: 8px;
+    padding-left: 28px;
+  }
+  .content {
+    padding-left: 75px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .user_display_name {
+    font-weight: 800;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  .timestamp {
+    color: #717274;
+    font-weight: 300;
+    font-size: 12px;
+  }
+}
+.message:hover {
+  background-color: rgb(249, 249, 249);
+}
+
+/*
+ * Message list
+ */
+.message_list {
+  margin-top: $header-height;
+  padding-bottom: 80px;
+}
+
+/*
+ * Message form
+ */
+.message_form {
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: $sidebar-width;
+  form {
+    margin: 0 20px;
+  }
+  .message_input {
+    border-radius: 6px;
+    border: 2px solid rgba(160,160,162,.7);
+    padding: 0 0 0 40px;
+    min-height: $message-form-height;
+  }
+  .message_input.focus {
+    border-color: rgb(113, 114, 116);
+  }
+  input[type=text] {
+    min-height: $message-form-height;
+    border: none;
+    width: 100%;
+  }
+  input[type=text]:focus {
+    outline: none;
+  }
+  input[type=text]::placeholder {
+    color: #ccc;
+  }
+}
+
+.typing_text {
+  padding-left: 63px;
+  color: #999;
+  font-size: 11.2px;
+  font-weight: 300;
+  line-height: 2em;
+}
