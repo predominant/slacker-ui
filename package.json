@@ -28,9 +28,11 @@
     "style-loader": "^0.21.0",
     "tls": "^0.0.1",
     "typeface-lato": "^0.0.54",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "unfurled": "^1.1.5",
     "webpack": "^4.8.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -41,6 +43,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Graham Weldon <graham@grahamweldon.com>",

@@ -37,8 +37,6 @@ class App extends Component {
   }
   onMessageAdd(message) {
     let {messages} = this.state;
-    console.log("Got a message");
-    console.log(message);
     messages.push(message);
     this.setState({messages});
   }
@@ -80,7 +78,6 @@ class App extends Component {
     // Check if activeRoom is empty, and update with the room that is marked as default
     if (Object.keys(this.state.activeRoom).length === 0 && this.state.activeRoom.constructor === Object && room.default) {
       this.setRoom(room);
-      console.log('Setting default room');
     }
   }
   addRoom(name) {
@@ -93,7 +90,6 @@ class App extends Component {
     this.socket.emit('message subscribe', {roomId: activeRoom.id});
   }
   setUserName(name) {
-    console.log('Emitting "user edit" : ' + name);
     this.socket.emit('user edit', {name});
   }
   // sendMessage(text) {
@@ -108,7 +104,6 @@ class App extends Component {
   //   // this.setState({messages});
   // }
   addMessage(body) {
-    console.log('Should send message')
     let {activeRoom} = this.state;
     this.socket.emit('message add', {roomId: activeRoom.id, body});
   }

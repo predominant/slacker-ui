@@ -21,9 +21,7 @@ class Socket {
     this.ws.send(message);
   }
   message(e) {
-    console.log('[WS] message');
     try {
-      console.log(e.data);
       const message = JSON.parse(e.data);
       this.ee.emit(message.name, message.data);
     }
@@ -32,16 +30,12 @@ class Socket {
     }
   }
   open() {
-    console.log('[WS] connect');
     this.ee.emit('connect');
   }
   close(e) {
-    console.warn('[WS] disconnect: ');
-    console.warn(e);
     this.ee.emit('disconnect');
   }
   error(e) {
-    console.error('[WS] error: ');
     console.error(e);
   }
 }

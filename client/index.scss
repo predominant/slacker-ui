@@ -209,6 +209,20 @@ code {
   .message_input.focus {
     border-color: rgb(113, 114, 116);
   }
+  textarea {
+    margin-top: 5px;
+    min-height: $message-form-height;
+    border: none;
+    width: 100%;
+    resize: none;
+    height: 1em;
+  }
+  textarea:focus {
+    outline: none;
+  }
+  textarea::placeholder {
+    color: #ccc;
+  }
   input[type=text] {
     min-height: $message-form-height;
     border: none;
