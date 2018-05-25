@@ -1,0 +1,8 @@
+worker_processes = "auto"
+port = 80
+
+[events]
+worker_connections = 512
+
+[app]
+api = "ws://127.0.0.1:4000"

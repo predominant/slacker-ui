@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {ScrollBox, ScrollAxes} from 'react-scroll-box';
 
 import Socket from '../socket.js';
 import TeamHeading from './teams/TeamHeading.jsx';
@@ -21,7 +22,8 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    let ws = new WebSocket('ws://10.49.30.207:4000');
+    let ws = new WebSocket(SlackerConfig.api);
+    //let ws = new WebSocket('ws://localhost:4000');
     let socket = this.socket = new Socket(ws);
     socket.on('connect', this.onConnect.bind(this));
     socket.on('disconnect', this.onDisconnect.bind(this));
